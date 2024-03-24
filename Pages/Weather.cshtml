@@ -1,0 +1,29 @@
+﻿@page
+@model WeatherApplication.Pages.WeatherModel
+@{
+    ViewData["Title"] = "Weather Forecast";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form method="get">
+        <div class="form-group">
+            <label for="cityName">Enter City Name:</label>
+            <input type="text" class="form-control" id="cityName" name="cityName">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+    @if (Model.WeatherData != null)
+    {
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Weather Information</h5>
+                <p class="card-text"><strong>City:</strong> @Model.WeatherData.City</p>
+                <p class="card-text"><strong>Description:</strong> @Model.WeatherData.Description</p>
+                <p class="card-text"><strong>Temperature:</strong> @Model.WeatherData.Temperature.Celsius °C | @Model.WeatherData.Temperature.Fahrenheit °F</p>
+            </div>
+        </div>
+    }
+</div>
+
+}
